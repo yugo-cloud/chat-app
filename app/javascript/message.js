@@ -14,6 +14,7 @@ function message() {
       const message = XHR.response.post;
       const list = document.getElementById("messages");
       const formText = document.getElementById("message_text");
+      const newImage = document.getElementById('message_image');
       const HTML = `
       <div class="message">
         <div class="upper-message">
@@ -29,13 +30,14 @@ function message() {
             ${ message.content }
           </div>
           <div class="message-image">
-            
+            ${ message.image}
           </div>
         </div>
       </div>
       `;
-      list.insertAdjacentHTML("afterend", HTML);
+      list.insertAdjacentHTML("beforeend", HTML);
       formText.value = "";
+      newImage.value = "";
     };
     e.preventDefault();
   });
