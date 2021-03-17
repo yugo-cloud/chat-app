@@ -10,6 +10,7 @@ class MessagesController < ApplicationController
     @message = @room.messages.new(message_params)
     if @message.save
       redirect_to room_messages_path(@room)
+      render json:{}
     else
       @messages = @room.messages.includes(:user)
       render :index
